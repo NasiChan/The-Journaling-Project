@@ -93,6 +93,3 @@ function saveEntry(emotion) {
 
 
 
-
-
-

@@ -6,13 +6,14 @@ body {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.main-nav{
-width: 100%;
+
+.main-nav {
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -20,6 +21,7 @@ width: 100%;
   font-family: 'Comic Neue', cursive, sans-serif;
   margin-bottom: 1rem;
 }
+
 .main-nav a {
   text-decoration: none;
   color: #d46a7f;
@@ -27,23 +29,28 @@ width: 100%;
   font-size: 1rem;
   transition: color 0.2s ease;
 }
-.main-nav a.active{
-    border-bottom: 2px solid #d46a7f;
+
+.main-nav a.active {
+  border-bottom: 2px solid #d46a7f;
 }
+
 .main-nav a:hover {
   color: #a84357;
 }
+
 #main-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
-#entry-emotion-heading{
+
+#entry-emotion-heading {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 h1 {
   display: inline-block;
   margin-top: 1rem;
@@ -51,7 +58,9 @@ h1 {
   font-size: 2.5rem;
   color: #333;
 }
-h3{
+
+h3 {
+  font-family: 'Comic Neue', cursive, sans-serif;
   display: inline-block;
   padding: 0.2rem 0.5rem;
   margin: 0 auto;
@@ -158,16 +167,20 @@ footer {
 #entry-form-container textarea {
   font-family: 'Comic Neue', cursive, sans-serif;
 }
-#entry-form-container{
-display: flex;
+
+#entry-form-container {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-#entry-textarea{
-  width: 80vw;                   /* almost full screen width */
-  height: 250px;                 /* not too tall */
+
+#entry-textarea {
+  width: 80vw;
+  /* almost full screen width */
+  height: 250px;
+  /* not too tall */
   font-size: 1rem;
   padding: 0.8rem;
   border-radius: 10px;
@@ -175,30 +188,120 @@ display: flex;
   border-radius: 10px;
   resize: vertical;
 }
-  
+
 
 #entry-form-container button {
   font-family: 'Comic Neue', cursive, sans-serif;
   font-weight: bold;
 }
+
 /*The Archive/Entries page*/
 #entries-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
+  max-width: 850px;
+  width: 90%;
+  margin: 2rem auto 4rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 
 .entry {
-  background: #ffeef2;
-  border-left: 5px solid #d46a7f;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background: #fff0f4;
+  border-left: 6px solid #d46a7f;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 10px rgba(214, 106, 127, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.entry:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(214, 106, 127, 0.25);
 }
 
 .entry h3 {
   margin-top: 0;
   color: #a84357;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
+.entry p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+.entry-date {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 0.7rem;
+}
+
+
+/*The About page*/
+.about-content,
+.about-subsection {
+  max-width: 800px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fffafa;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.25);
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  line-height: 1.8;
+  font-family: 'Comic Neue', cursive, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.about-content strong {
+  color: #a84357;
+}
+
+.about-subsection h2 {
+  color: #d46a7f;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.about-subsection ul {
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+.about-subsection li {
+  margin-bottom: 0.8rem;
+  color: #5a5a5a;
+}
+
+blockquote {
+  background-color: #ffe5ec;
+  border-left: 5px solid #d46a7f;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem auto;
+  font-style: italic;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(255, 182, 193, 0.15);
+  font-size: 1.05rem;
+  color: #6b4a57;
+  max-width: 700px;
+}
+
+blockquote span {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-style: normal;
+  color: #a84357;
+  text-align: right;
+}
+
+/* Optional hover or animation effects for sections */
+.about-content:hover,
+.about-subsection:hover {
+  box-shadow: 0 6px 16px rgba(255, 154, 162, 0.3);
+}
