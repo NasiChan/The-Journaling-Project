@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
 const entrySchema = new mongoose.Schema({
+  emotion: {
+    type: String,
+    required: true
+  },
   text: {
     type: String,
     required: true
