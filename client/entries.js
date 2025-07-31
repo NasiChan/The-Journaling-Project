@@ -1,28 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("entries-container");
 
-  const entries = JSON.parse(localStorage.getItem("burnBookEntries")) || [];
+  fetch("https://the-journaling-project.onrender.com/api/entries")
+    .then(res => res.json())
+    .then(entries => {
+      if (!entries || entries.length === 0) {
+        container.innerHTML = "<p>No entries found.</p>";
+        return;
+      }
 
-  if (entries.length === 0) {
-    container.innerHTML = "<p>No entries found.</p>";
-    return;
-  }
+      entries.forEach(entry => {
+        const entryDiv = document.createElement("div");
+        entryDiv.className = "entry";
 
-  entries.forEach(entry => {
-    const entryDiv = document.createElement("div");
-    entryDiv.className = "entry";
+        const date = new Date(entry.date);
+        const formattedDate = date.toLocaleDateString('en-US', {
+          weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
+        });
 
-    const date = new Date(entry.date);
-    const formattedDate = date.toLocaleDateString('en-US', {
-      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
+        entryDiv.innerHTML = `
+          <p class="entry-date">${formattedDate}</p>
+          <h3>${entry.emotion}</h3>
+          <p>${entry.text.replace(/\n/g, "<br>")}</p>
+        `;
+
+        container.appendChild(entryDiv);
+      });
+    })
+    .catch(error => {
+      console.error("Failed to fetch entries:", error);
+      container.innerHTML = "<p>Error loading entries. Please try again later.</p>";
     });
-
-    entryDiv.innerHTML = `
-      <p class="entry-date">${formattedDate}</p>
-      <h3>${entry.emotion}</h3>
-      <p>${entry.content.replace(/\n/g, "<br>")}</p>
-    `;
-
-    container.appendChild(entryDiv);
-  });
 });
+
