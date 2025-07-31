@@ -3,7 +3,6 @@ import Entry from '../models/entry.js';
 
 const router = express.Router();
 
-// GET all entries
 router.get('/entries', async (req, res) => {
   try {
     const entries = await Entry.find();
@@ -13,10 +12,10 @@ router.get('/entries', async (req, res) => {
   }
 });
 
-// POST a new entry
 router.post('/entries', async (req, res) => {
   try {
     const newEntry = new Entry({
+      emotion: req.body.emotion,
       text: req.body.text,
       date: new Date()
     });
