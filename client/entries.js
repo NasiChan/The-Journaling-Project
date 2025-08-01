@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+  function escapeHTML(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
   const container = document.getElementById("entries-container");
 
   fetch("https://the-journaling-project.onrender.com/api/entries")
@@ -21,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entryDiv.innerHTML = `
           <p class="entry-date">${formattedDate}</p>
           <h3>${entry.emotion}</h3>
-          <p>${entry.text.replace(/\n/g, "<br>")}</p>
+          <p>${escapeHTML(entry.text).replace(/\n/g, "<br>")}</p>
         `;
 
         container.appendChild(entryDiv);
