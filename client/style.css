@@ -42,6 +42,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
 }
 
@@ -64,10 +65,15 @@ h3 {
   display: inline-block;
   padding: 0.2rem 0.5rem;
   margin: 0 auto;
+  text-align: center;
 }
 
 #main-header {
   font-family: 'Barrio', cursive, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -173,19 +179,16 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100dvh;
 }
 
 #entry-textarea {
   width: 80vw;
-  /* almost full screen width */
   height: 250px;
-  /* not too tall */
   font-size: 1rem;
   padding: 0.8rem;
   border-radius: 10px;
   border: 2px solid #d0d0d0;
-  border-radius: 10px;
   resize: vertical;
 }
 
@@ -202,6 +205,8 @@ footer {
   margin: 2rem auto 4rem auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
   padding: 0 1rem;
 }
@@ -241,6 +246,7 @@ footer {
 
 
 /*The About page*/
+
 .about-content,
 .about-subsection {
   max-width: 800px;
