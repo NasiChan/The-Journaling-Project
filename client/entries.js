@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         entryDiv.innerHTML = `
           <p class="entry-date">${formattedDate}</p>
-          <h3>${entry.emotion}</h3>
+          <h3>${escapeHTML(entry.emotion)}</h3>
           <p>${escapeHTML(entry.text).replace(/\n/g, "<br>")}</p>
         `;
 
